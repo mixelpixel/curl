@@ -185,7 +185,7 @@ $  curl -H "Content-Type: application/json" -b "connect.sid=s%3AK-2XUQqoT4Cw7JPo
 
 ## 5. From the Mobile-II project: SignUp, SignIn and accessing Restricted Content
 
-curl (alternative to Postman) for signup, signin and get all users content:
+`curl` (alternative to Postman) for signup, signin and get all users content:
 1) SIGNUP
 ```
 $  curl -X POST -H "Content-Type: application/json" -d '{"email":"fred@fred.com","password":"12345"}' -v https://mobile-server-ii.herokuapp.com/users
@@ -209,6 +209,6 @@ this will return a similar object:
 ```
 $  curl -X GET -H "authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OWI4NTExZGZlNmVkODAwMTE5Y2VjNzkiLCJpYXQiOjE1MDUyNTE2NDc2MjB9.0cp7qTMw-wgDYkV9Bj0ZwOADAhIWR7t3j_oerqxtdIg" -v https://mobile-server-ii.herokuapp.com/users
 ```
-…and a while buncha username and hashed passwords will come your way
+…and a whole buncha username and hashed passwords will come your way
 
 :smile:
