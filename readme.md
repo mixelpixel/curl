@@ -7,14 +7,14 @@ Reference material:
 - see also `man curl`
 
 ### to set up the view counter and test the curl commands:
-1. `cd` into the curl directory
-2. `npm i` to install the packages listed in the package.json file
-3. `mkdir data` for the MongoDB data
-4. `mongod --dbpath data` to launch the daemon and use the data directory
-5. `nodemon viewCounter.js` to launch the server so the
-6. `/users`, `/log-in`, `/me` & `/view-counter` routes are available
+1. `cd` into the curl directory.
+2. `npm i` to install the packages listed in the package.json file.
+3. `mkdir data` for the MongoDB data.
+4. `mongod --dbpath data` to launch the daemon and use the data directory.
+5. `nodemon viewCounter.js` to launch the server so the.
+6. `/users`, `/log-in`, `/me` & `/view-counter` routes are available.
 7. on http://localhost:3000
-8. In your home directory (`~/`) edit or create a `~/.curlrc` file and add `-w "\n"` so the `curl` command prints out ends with a "newline"
+8. In your home directory (`~/`) edit or create a `~/.curlrc` file and add `-w "\n"` so the `curl` command prints out ends with a "newline".
 
 ## 1. **POST**ing JSON objects to the '/users' route:
 Just like the Postman application, `curl` can send data through JSON objects:
