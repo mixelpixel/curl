@@ -220,3 +220,47 @@ $  curl -X POST -H "authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIi
 
 {"_id":"59b973098012a800112be525","email":"ely@ely.com","password":"$2a$10$73Sonm7Sy19dnLwWtSpuZeqnVTUFN65AHHWD2ws8KEnvAZW/03YHq","__v":1,"todos":[{"text":"bake a cake","_id":"59b999748012a800112be5dc","completed":false}]}
 ```
+
+## 6. Sprint-Challenge-Authentication
+Just for my own reference, cURL equivalents:
+
+For folks like working in the console, there are `cURL` equivalents for Postman commands. You can access these through the `Code` snippets link in the Postman app:
+https://www.getpostman.com/docs/v6/postman/sending_api_requests/generate_code_snippets
+
+The Postman snippets are a little more verbose, but as an example, instead of using Postman for the Authentication Sprint routes and HTTP methods, these are the `cURL` equivalents:
+
+*/api/users/*
+i.e. `curl -x HTTP_METHOD {URL} -H {CONTENT:TYPE} -d '{"JSON":"DATA"}`
+```console
+$  curl -X POST http://localhost:5000/api/users -H 'Content-Type: application/json' -d '{"username":"cool_name","password":"reallydifficult"}'
+    {
+     "__v":0,
+     "username":"cool_name",
+     "password":"$2a$11$ZziXrc/QXfPxm42WWLPPJ.JyvQS.ClyBnPDYvdclDUv06v9Uaiwhu",
+     "_id":"5ab6c702ae098de170987a00"
+    }
+```
+
+
+*/api/login/*
+i.e. `curl -x HTTP_METHOD {URL} -H {CONTENT:TYPE} -d '{"JSON":"DATA"}`
+```console
+$  curl -X POST http://localhost:5000/api/login -H 'Content-Type: application/json' -d '{"username":"cool_name","password":"reallydifficult"}'
+    {
+     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNvb2xfbmFtZSIsImlhdCI6MTUyMTkyODA5Mn0.8aSKqHzQkprobO5w4oo-SuC03M4YIYFyPCD9EVNXu_s"
+    }
+```
+
+*/api/jokes:*
+i.e. `curl {URL} -H "Authorization:token"`
+```console
+$ curl http://localhost:5000/api/jokes -H "Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNvb2xfbmFtZSIsImlhdCI6MTUyMTkyODA5Mn0.8aSKqHzQkprobO5w4oo-SuC03M4YIYFyPCD9EVNXu_s"
+[
+    {
+        "id": 30,
+        "type": "programming",
+        "setup": "Two bytes meet. The first byte asks, \"Are you ill?\"",
+        "punchline": "The second byte replies, \"No, just feeling a bit off.\""
+    },
+    et cetera...
+```
